@@ -32,6 +32,7 @@ npm install
 Copy `.env.local.example` to `.env.local` and fill in:
 
 ```bash
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 GOOGLE_API_KEY=
@@ -56,6 +57,18 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
+
+## Production Deployment
+
+Use the deployment kit in:
+
+- `DEPLOYMENT.md`
+- `.env.production.example`
+- `vercel.json`
+
+Health endpoint:
+
+- `/api/health`
 
 ## Project Structure
 
