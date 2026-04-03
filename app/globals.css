@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f4f7fb;
+  --bg-soft: #e8eef7;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-soft: rgba(255, 255, 255, 0.72);
+  --border: rgba(15, 23, 42, 0.09);
+  --border-strong: rgba(14, 116, 144, 0.18);
+  --text: #122033;
+  --text-soft: #4f637d;
+  --brand: #0f766e;
+  --brand-soft: #d7f3ef;
+  --accent: #f59e0b;
+  --danger: #dc2626;
+  --shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.92)),
+      radial-gradient(circle at top right, rgba(14, 165, 233, 0.14), transparent 24%),
+      radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), transparent 26%),
+      var(--bg);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: rgba(15, 118, 110, 0.16);
+  }
+}
+
+@layer components {
+  .app-shell {
+    min-height: 100vh;
+  }
+
+  .card {
+    @apply rounded-3xl border p-5 md:p-6;
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+  }
+
+  .panel-soft {
+    @apply rounded-2xl border p-4;
+    background: var(--surface-soft);
+    border-color: var(--border);
+  }
+
+  .section-title {
+    @apply text-[11px] uppercase tracking-[0.22em] font-semibold;
+    color: var(--brand);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold;
+    background: var(--brand-soft);
+    color: var(--brand);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition;
+    color: white;
+    background: linear-gradient(135deg, #0f766e, #0891b2);
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.05);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border px-5 py-3 text-sm font-medium transition;
+    border-color: var(--border);
+    color: var(--text-soft);
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .btn-ghost:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  .input {
+    @apply w-full rounded-2xl border px-4 py-3 text-sm outline-none transition;
+    color: var(--text);
+    background: white;
+    border-color: rgba(15, 23, 42, 0.12);
+  }
+
+  .input::placeholder {
+    color: #789;
+  }
+
+  .input:focus {
+    border-color: rgba(15, 118, 110, 0.34);
+    box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+
+  .status-pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+    background: #fff6db;
+    color: #9a6700;
+  }
+
+  .metric-card {
+    @apply card;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.cat-food { @apply bg-orange-100 text-orange-700; }
+.cat-transport { @apply bg-sky-100 text-sky-700; }
+.cat-accommodation { @apply bg-violet-100 text-violet-700; }
+.cat-entertainment { @apply bg-pink-100 text-pink-700; }
+.cat-utilities { @apply bg-amber-100 text-amber-700; }
+.cat-shopping { @apply bg-cyan-100 text-cyan-700; }
+.cat-other { @apply bg-slate-100 text-slate-700; }
+
+.balance-positive { color: #15803d; }
+.balance-negative { color: #b91c1c; }
+.balance-zero { color: #64748b; }
